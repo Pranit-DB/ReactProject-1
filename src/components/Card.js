@@ -1,13 +1,7 @@
 import React from "react";
-// import { ReactDOM } from "react";
 import "../index.css";
 
-// const Card = (props) =>{
-    // destructing through passing parameters ES6+ feature
 const Card = ({name, email ,id}) =>{
-    // destructing
-    // const {name, email ,id} = props;
-
     return(
         <div className="card">
             <div className="imgBx">
