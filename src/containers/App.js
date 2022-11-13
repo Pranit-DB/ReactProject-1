@@ -6,11 +6,6 @@ import { robots } from "../robots";
 
 import ErrorBoundry from "../components/ErrorBoundry";
 
-// const state = {
-//     robots: robots,
-//     searchfield:''
-// }
-// const App = ()=>{
 class App extends Component{
 
     constructor(){
@@ -21,10 +16,6 @@ class App extends Component{
         }
     }
     componentDidMount(){
-
-        // fetch('https://jsonplaceholder.typicode.com/users')
-        //     .then(response =>response.json())
-        //     .then(users=>{this.setState({robots:robots})});
         this.setState({robots:robots})
     }
 
@@ -41,24 +32,19 @@ class App extends Component{
             return robo.name.toLocaleLowerCase()
                 .includes(searchfield.toLocaleLowerCase());
         })
-        // Display "Loading..." while it's loading
-        // if(robots.length===0){
-        //     return <h1>Loading...</h1>
-        // }else{
-            return !robots.length ? <h1>Loading...</h1> :
-            // return
-            (
-                <div className="text-center">
-                    <h1 className="sticky">Robo-Mates</h1>
-                    <SearchBox searchChange={this.onSearchChange}/>
-                    <Scroll>
-                        <ErrorBoundry>
-                        {/* <CardList robots={robots}/> */}
-                            <CardList robots={filteredRobots}/>
-                        </ErrorBoundry>
-                    </Scroll>
-                </div>
-            )
+        return !robots.length ? <h1>Loading...</h1> :
+        (
+            <div className="text-center">
+                <h1 className="sticky">Robo-Mates</h1>
+                <SearchBox searchChange={this.onSearchChange}/>
+                <Scroll>
+                    <ErrorBoundry>
+                    {/* <CardList robots={robots}/> */}
+                        <CardList robots={filteredRobots}/>
+                    </ErrorBoundry>
+                </Scroll>
+            </div>
+        )
     }
 }
 export default App;
